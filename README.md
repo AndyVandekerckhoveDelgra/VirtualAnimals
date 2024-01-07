@@ -5,6 +5,7 @@ Mapping:
 Adopted Animal Service: Localhost:8082/api/adoptedanimal
 
 POST: Create Adopted Animal items by Nickname
+
 http://localhost:8082/api/adoptedanimal
 
     {
