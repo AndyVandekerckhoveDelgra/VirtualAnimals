@@ -23,9 +23,13 @@ http://localhost:8082/api/adoptedanimal
         "nickname": "Lisa"
     }
 
+
+
 #### GET: Get Adopted Animal item by Animal Code:
 
 http://localhost:8082/api/adoptedanimal?animalCode=ABC123
+
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/1GET1.png)
 
 #### GET: Get Adopted Animal items
 
