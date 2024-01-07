@@ -35,9 +35,13 @@ http://localhost:8082/api/adoptedanimal?animalCode=ABC123
 
 http://localhost:8082/api/adoptedanimal/all
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/1GET2.png)
+
 #### GET: Get Adopted Animal items by Nickname
 
 http://localhost:8082/api/adoptedanimal/search/Mar
+
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/1GET3.png)
 
 #### PUT: Update Adopted Animal items by Animal Code
 
@@ -48,11 +52,13 @@ http://localhost:8082/api/adoptedanimal/update/DBC321
         "nickname": "Claudette"
     }
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/1PUT1.png)
 
 #### DELETE: Delete Adopted Animal items by Animal Code
 
 http://localhost:8082/api/adoptedanimal/delete/DBC321
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/1DELETE1.png)
 
 ### Animals Service: 
 
@@ -81,18 +87,29 @@ http://localhost:8080/api/animal
         "price": 26
     }
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/2POST1.png)
+
+(Note: The code does work as seen with the following image, as the item has been created.)
+
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/2POST2.png)
 
 #### GET: Get Adopted Animal item by Animal Code:
 
 http://localhost:8080/api/animal?animalCode=ABC123
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/2GET1.png)
+
 #### GET: Get All Animal items:
 
 http://localhost:8080/api/animal/all
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/2GET2.png)
+
 #### GET: Get Animal items by Name or Description:
 
 http://localhost:8080/api/animal/search/internet
+
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/2GET3.png)
 
 #### PUT: Update Animal item:
 
@@ -105,9 +122,13 @@ http://localhost:8080/api/animal/update/DBC321
         "price": 30
     }
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/2PUT1.png)
+
 #### DELETE: Delete Animal item:
 
 http://localhost:8080/api/animal/delete/DBC321
+
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/2DELETE1.png)
 
 ### Food Service: 
 
