@@ -47,18 +47,18 @@ Animals Service: http://localhost:8080/api/animal
 POST: Create Animal item:
 http://localhost:8080/api/animal
 
-{
+    {
         "animalCode": "ABC123",
         "name": "Golden Retriever",
         "description": "An energetic, golden dog.",
         "price": 13
-    },
+    }
     {
         "animalCode": "tube6in",
         "name": "Shiba Inu",
         "description": "An golden dog very popular on the internet.",
         "price": 20
-    },
+    }
     {
         "animalCode": "DBC321",
         "name": "Tabby Cat",
@@ -79,7 +79,7 @@ http://localhost:8080/api/animal/search/internet
 PUT: Update Animal item:
 http://localhost:8080/api/animal/update/DBC321
 
-{
+    {
         "animalCode": "DBC321",
         "name": "Tabby Cat 1",
         "description": "A very common breed of cat. First version.",
@@ -93,15 +93,15 @@ Food Service: http://localhost:8083/api/food
 
 POST: Post Food item:
 http://localhost:8083/api/food
-{
+    {
         "foodcode": "POP932",
         "name": "pie"
-    },
+    }
     {
         "foodcode": "DFG889",
         "name": "Cupcake"
-    },
-{
+    }
+    {
         "foodcode": "PPP999",
         "name": "burger"
     }
@@ -118,7 +118,7 @@ http://localhost:8083/api/food/search/pi
 
 PUT: Update Food item:
 http://localhost:8083/api/food/update/PPP999
-{
+    {
         "foodcode": "PPP999",
         "name": "hamburger"
     }
