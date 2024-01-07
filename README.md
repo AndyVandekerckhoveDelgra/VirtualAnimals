@@ -147,18 +147,19 @@ POST: Place Order:
 
 POST: Feed an adopted animal food:
 http://localhost:8081/api/operation/feeding
-{
-  "feedingTimeItemsDtoList": [
+
     {
-      "animalCode": "ABC123",
-      "foodcode": "DFG889"
-    },
-    {
-      "animalCode": "tube6in",
-      "foodcode": "POP932"
+      "feedingTimeItemsDtoList": [
+        {
+          "animalCode": "ABC123",
+          "foodcode": "DFG889"
+        },
+        {
+          "animalCode": "tube6in",
+          "foodcode": "POP932"
+        }
+      ]
     }
-  ]
-}
 
 
 GET: Get all operation items:
@@ -174,26 +175,26 @@ http://localhost:8081/api/operation/after/2024-01-01T00:03:52.353969
 PUT: Update Operation:
 Note: In the example, all that’s being changed is the date, changing the year from 2024 to 2025.
 http://localhost:8081/api/operation/update/dd4bddc4-2f2a-4c79-816f-bbb9c7a257d1
-{
-        "operationNumber": "dd4bddc4-2f2a-4c79-816f-bbb9c7a257d1",
-        "date": "2025-01-07T00:03:52.353969",
-        "orderLineItemsList": [
-            {
-                "id": 25,
-                "animalCode": "ABC123",
-                "price": 13.00,
-                "name": "Golden Retriever",
-                "nickname": "Johnny"
-            },
-            {
-                "id": 26,
-                "animalCode": "tube6in",
-                "price": 20.00,
-                "name": "Shiba Inu",
-                "nickname": "Mark"
-            }
-        ],
-        "feedingTimeItemsList": []
+    {
+            "operationNumber": "dd4bddc4-2f2a-4c79-816f-bbb9c7a257d1",
+            "date": "2025-01-07T00:03:52.353969",
+            "orderLineItemsList": [
+                {
+                    "id": 25,
+                    "animalCode": "ABC123",
+                    "price": 13.00,
+                    "name": "Golden Retriever",
+                    "nickname": "Johnny"
+                },
+                {
+                    "id": 26,
+                    "animalCode": "tube6in",
+                    "price": 20.00,
+                    "name": "Shiba Inu",
+                    "nickname": "Mark"
+                }
+            ],
+            "feedingTimeItemsList": []
     }
 
 DELETE: Delete Operation:
