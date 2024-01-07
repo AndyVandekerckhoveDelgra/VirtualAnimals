@@ -11,7 +11,6 @@ http://localhost:8082/api/adoptedanimal
         "animalCode": "ABC123",
         "nickname": "Johnny"
     }
-    
     {
         "animalCode": "tube6in",
         "nickname": "Mark"
