@@ -89,7 +89,7 @@ http://localhost:8080/api/animal
 
 ![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/2POST1.png)
 
-(Note: The code does work as seen with the following image, as the item has been created.)
+(Opmerking: de code werkt zoals te zien is in de volgende afbeelding, aangezien het item is gemaakt.)
 
 ![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/2POST2.png)
 
@@ -245,7 +245,7 @@ http://localhost:8081/api/operation?operationNumber=dd4bddc4-2f2a-4c79-816f-bbb9
 
 #### GET: Get all operation items by date:
 
-(Note: it shows all the operations whose date come after the given date.)
+(Opmerking: het toont alle bewerkingen waarvan de datum na de opgegeven datum valt.)
 
 http://localhost:8081/api/operation/after/2024-01-01T00:03:52.353969
 
@@ -253,7 +253,7 @@ http://localhost:8081/api/operation/after/2024-01-01T00:03:52.353969
 
 #### PUT: Update Operation:
 
-(Note: In the example, all that’s being changed is the date, changing the year from 2024 to 2025.)
+(Opmerking: in het voorbeeld wordt alleen de datum gewijzigd, waardoor het jaar verandert van 2024 naar 2025.)
 
 http://localhost:8081/api/operation/update/dd4bddc4-2f2a-4c79-816f-bbb9c7a257d1
 
