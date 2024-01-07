@@ -2,7 +2,7 @@
 
 Mapping:
 
-Adopted Animal Service: Localhost:8082/api/adoptedanimal
+Adopted Animal Service: http://localhost:8082/api/adoptedanimal
 
 POST: Create Adopted Animal items by Nickname
 
@@ -22,15 +22,19 @@ http://localhost:8082/api/adoptedanimal
     }
 
 GET: Get Adopted Animal item by Animal Code:
+
 http://localhost:8082/api/adoptedanimal?animalCode=ABC123
 
 GET: Get Adopted Animal items
+
 http://localhost:8082/api/adoptedanimal/all
 
 GET: Get Adopted Animal items by Nickname
+
 http://localhost:8082/api/adoptedanimal/search/Mar
 
 PUT: Update Adopted Animal items by Animal Code
+
 http://localhost:8082/api/adoptedanimal/update/DBC321
 
     {
@@ -40,12 +44,14 @@ http://localhost:8082/api/adoptedanimal/update/DBC321
 
 
 DELETE: Delete Adopted Animal items by Animal Code
+
 http://localhost:8082/api/adoptedanimal/delete/DBC321
 
 
 Animals Service: http://localhost:8080/api/animal
 
 POST: Create Animal item:
+
 http://localhost:8080/api/animal
 
     {
@@ -69,15 +75,19 @@ http://localhost:8080/api/animal
 
 
 GET: Get Adopted Animal item by Animal Code:
+
 http://localhost:8080/api/animal?animalCode=ABC123
 
 GET: Get All Animal items:
+
 http://localhost:8080/api/animal/all
 
 GET: Get Animal items by Name or Description:
+
 http://localhost:8080/api/animal/search/internet
 
 PUT: Update Animal item:
+
 http://localhost:8080/api/animal/update/DBC321
 
     {
@@ -88,11 +98,13 @@ http://localhost:8080/api/animal/update/DBC321
     }
 
 DELETE: Delete Animal item:
+
 http://localhost:8080/api/animal/delete/DBC321
 
 Food Service: http://localhost:8083/api/food
 
 POST: Post Food item:
+
 http://localhost:8083/api/food
 
     {
@@ -110,15 +122,19 @@ http://localhost:8083/api/food
 
 
 GET: Get all Food items:
+
 http://localhost:8083/api/food/all
 
 GET: Get Food item by foodcode:
+
 http://localhost:8083/api/food?foodcode=POP932
 
 GET: Get Food item by name:
+
 http://localhost:8083/api/food/search/pi
 
 PUT: Update Food item:
+
 http://localhost:8083/api/food/update/PPP999
 
     {
@@ -127,6 +143,7 @@ http://localhost:8083/api/food/update/PPP999
     }
 
 DELETE: Delete Food item:
+
 http://localhost:8083/api/food/delete/PPP999
 
 Operation service: http://localhost:8081/api/operation
@@ -147,6 +164,7 @@ POST: Place Order:
     }
 
 POST: Feed an adopted animal food:
+
 http://localhost:8081/api/operation/feeding
 
     {
@@ -164,17 +182,23 @@ http://localhost:8081/api/operation/feeding
 
 
 GET: Get all operation items:
+
 http://localhost:8081/api/operation/all
 
 GET: Get all operation items by operation number:
+
 http://localhost:8081/api/operation?operationNumber=dd4bddc4-2f2a-4c79-816f-bbb9c7a257d1
 
 GET: Get all operation items by date:
+
 (Note: it shows all the operations whose date come after the given date.)
+
 http://localhost:8081/api/operation/after/2024-01-01T00:03:52.353969
 
 PUT: Update Operation:
-Note: In the example, all that’s being changed is the date, changing the year from 2024 to 2025.
+
+(Note: In the example, all that’s being changed is the date, changing the year from 2024 to 2025.)
+
 http://localhost:8081/api/operation/update/dd4bddc4-2f2a-4c79-816f-bbb9c7a257d1
 
     {
@@ -200,4 +224,5 @@ http://localhost:8081/api/operation/update/dd4bddc4-2f2a-4c79-816f-bbb9c7a257d1
     }
 
 DELETE: Delete Operation:
+
 http://localhost:8081/api/operation/delete/cb432450-09f3-404c-af49-adf7b52fa0fa
