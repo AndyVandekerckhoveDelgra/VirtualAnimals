@@ -126,7 +126,7 @@ http://localhost:8083/api/food/update/PPP999
     }
 
 DELETE: Delete Food item:
-http//localhost:8083/api/food/delete/PPP999
+http://localhost:8083/api/food/delete/PPP999
 
 Operation service: http://localhost:8081/api/operation
 
