@@ -1,4 +1,4 @@
-# VirtualAnimals
+# Virtual Animals EDE Project
 
 ## Mapping:
 
