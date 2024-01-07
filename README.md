@@ -93,6 +93,7 @@ Food Service: http://localhost:8083/api/food
 
 POST: Post Food item:
 http://localhost:8083/api/food
+
     {
         "foodcode": "POP932",
         "name": "pie"
@@ -118,6 +119,7 @@ http://localhost:8083/api/food/search/pi
 
 PUT: Update Food item:
 http://localhost:8083/api/food/update/PPP999
+
     {
         "foodcode": "PPP999",
         "name": "hamburger"
