@@ -42,14 +42,10 @@ public class FoodController {
 
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED) // Use HttpStatus.CREATED for successful resource creation
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<String> createFood(@RequestBody FoodRequest foodRequest) {
         foodService.createFood(foodRequest);
-
-        // Assuming the product creation was successful, return a success message
-        String responseMessage = "Product created successfully.";
-
-        // You can also include additional information in the response if needed
+        String responseMessage = "Food item created successfully.";
 
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMessage);
     }

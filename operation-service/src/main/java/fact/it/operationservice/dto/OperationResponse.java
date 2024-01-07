@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OperationResponse {
-    private String orderNumber;
+    private String operationNumber;
     private LocalDateTime date;
     private List<OrderLineItemDto> orderLineItemsList;
     private List<FeedingTimeItemDto> feedingTimeItemsList;

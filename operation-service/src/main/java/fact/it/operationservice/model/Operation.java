@@ -19,7 +19,7 @@ public class Operation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String orderNumber;
+    private String operationNumber;
     private LocalDateTime date;
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderLineItem> orderLineItemsList;

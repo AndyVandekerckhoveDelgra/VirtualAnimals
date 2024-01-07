@@ -18,7 +18,7 @@ public class AnimalService {
 
     public void createAnimal(AnimalRequest animalRequest){
         Animal animal = Animal.builder()
-                .skuCode(animalRequest.getSkuCode())
+                .animalCode(animalRequest.getAnimalCode())
                 .name(animalRequest.getName())
                 .description(animalRequest.getDescription())
                 .price(animalRequest.getPrice())
@@ -34,14 +34,8 @@ public class AnimalService {
         return animals.stream().map(this::mapToAnimalResponse).toList();
     }
 
-    public List<AnimalResponse> getAllAnimalsBySkuCode(List<String> skuCode) {
-        List<Animal> animals = animalRepository.findBySkuCodeIn(skuCode);
-
-        return animals.stream().map(this::mapToAnimalResponse).toList();
-    }
-
-    public List<AnimalResponse> getAllAnimalsByName(List<String> name) {
-        List<Animal> animals = animalRepository.findByNameContaining(name);
+    public List<AnimalResponse> getAllAnimalsByAnimalCode(List<String> animalCode) {
+        List<Animal> animals = animalRepository.findByAnimalCodeIn(animalCode);
 
         return animals.stream().map(this::mapToAnimalResponse).toList();
     }
@@ -49,15 +43,15 @@ public class AnimalService {
     private AnimalResponse mapToAnimalResponse(Animal animal) {
         return AnimalResponse.builder()
                 .id(animal.getId())
-                .skuCode(animal.getSkuCode())
+                .animalCode(animal.getAnimalCode())
                 .name(animal.getName())
                 .description(animal.getDescription())
                 .price(animal.getPrice())
                 .build();
     }
 
-    public boolean deleteAnimalItemsBySkuCode(String skuCode) {
-        List<Animal> itemsToDelete = animalRepository.findBySkuCode(skuCode);
+    public boolean deleteAnimalItemsByAnimalCode(String animalCode) {
+        List<Animal> itemsToDelete = animalRepository.findByAnimalCode(animalCode);
         if (!itemsToDelete.isEmpty()) {
             animalRepository.deleteAll(itemsToDelete);
             return true;
@@ -67,14 +61,14 @@ public class AnimalService {
     }
 
 
-    public Animal updateAnimalBySkuCode(Animal updateAnimal, String skuCode) {
-        List<Animal> animalOptional = animalRepository.findBySkuCode(skuCode);
+    public Animal updateAnimalByAnimalCode(Animal updateAnimal, String animalCode) {
+        List<Animal> animalOptional = animalRepository.findByAnimalCode(animalCode);
         if (!animalOptional.isEmpty()){
             Animal animal = animalOptional.get(0);
             animal.setName(updateAnimal.getName());
             animal.setDescription(updateAnimal.getDescription());
             animal.setPrice(updateAnimal.getPrice());
-            animal.setSkuCode(updateAnimal.getSkuCode());
+            animal.setAnimalCode(updateAnimal.getAnimalCode());
             return animalRepository.save(animal);
         }
         return null;

@@ -33,7 +33,7 @@ public class OperationService {
 
     public boolean placeOrder(OperationRequest operationRequest) {
         Operation operation = new Operation();
-        operation.setOrderNumber(UUID.randomUUID().toString());
+        operation.setOperationNumber(UUID.randomUUID().toString());
 
         operation.setDate(LocalDateTime.now());
 
@@ -44,13 +44,13 @@ public class OperationService {
 
         operation.setOrderLineItemsList(orderLineItems);
 
-        List<String> skuCodes = operation.getOrderLineItemsList().stream()
-                .map(OrderLineItem::getSkuCode)
+        List<String> animalCodes = operation.getOrderLineItemsList().stream()
+                .map(OrderLineItem::getAnimalCode)
                 .toList();
 
         AdoptedAnimalResponse[] adoptedAnimalResponseArray = webClient.get()
                 .uri("http://localhost:8082/api/adoptedanimal",
-                        uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
+                        uriBuilder -> uriBuilder.queryParam("animalCode", animalCodes).build())
                 .retrieve()
                 .bodyToMono(AdoptedAnimalResponse[].class)
                 .block();
@@ -59,7 +59,7 @@ public class OperationService {
 
             AnimalResponse[] animalResponseArray = webClient.get()
                     .uri("http://localhost:8080/api/animal",
-                            uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
+                            uriBuilder -> uriBuilder.queryParam("animalCode", animalCodes).build())
                     .retrieve()
                     .bodyToMono(AnimalResponse[].class)
                     .block();
@@ -67,7 +67,7 @@ public class OperationService {
             operation.getOrderLineItemsList().stream()
                     .map(orderItem -> {
                         AnimalResponse animal = Arrays.stream(animalResponseArray)
-                                .filter(p -> p.getSkuCode().equals(orderItem.getSkuCode()))
+                                .filter(p -> p.getAnimalCode().equals(orderItem.getAnimalCode()))
                                 .findFirst()
                                 .orElse(null);
                         if (animal != null) {
@@ -85,7 +85,7 @@ public class OperationService {
 
     public boolean placeFeedingTime(OperationRequest operationRequest) {
         Operation operation = new Operation();
-        operation.setOrderNumber(UUID.randomUUID().toString());
+        operation.setOperationNumber(UUID.randomUUID().toString());
         operation.setDate(LocalDateTime.now());
 
         List<FeedingTimeItem> feedingTimeItems = operationRequest.getFeedingTimeItemsDtoList()
@@ -95,8 +95,8 @@ public class OperationService {
 
         operation.setFeedingTimeItemsList(feedingTimeItems);
 
-        List<String> skuCodes = operation.getFeedingTimeItemsList().stream()
-                .map(FeedingTimeItem::getSkuCode)
+        List<String> animalCodes = operation.getFeedingTimeItemsList().stream()
+                .map(FeedingTimeItem::getAnimalCode)
                 .toList();
 
         List<String> foodCodes = operation.getFeedingTimeItemsList().stream()
@@ -105,7 +105,7 @@ public class OperationService {
 
         AdoptedAnimalResponse[] adoptedAnimalResponseArray = webClient.get()
                 .uri("http://localhost:8082/api/adoptedanimal",
-                        uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
+                        uriBuilder -> uriBuilder.queryParam("animalCode", animalCodes).build())
                 .retrieve()
                 .bodyToMono(AdoptedAnimalResponse[].class)
                 .block();
@@ -120,7 +120,7 @@ public class OperationService {
         operation.setFeedingTimeItemsList(operation.getFeedingTimeItemsList().stream()
                 .map(orderItem -> {
                     AdoptedAnimalResponse adoptedAnimal = Arrays.stream(adoptedAnimalResponseArray)
-                            .filter(p -> p.getSkuCode().equals(orderItem.getSkuCode()))
+                            .filter(p -> p.getAnimalCode().equals(orderItem.getAnimalCode()))
                             .findFirst()
                             .orElse(null);
 
@@ -130,7 +130,7 @@ public class OperationService {
                             .orElse(null);
 
                     FeedingTimeItem orderLineItem = new FeedingTimeItem();
-                    orderLineItem.setSkuCode(orderItem.getSkuCode());
+                    orderLineItem.setAnimalCode(orderItem.getAnimalCode());
                     orderLineItem.setFoodcode(orderItem.getFoodcode());
 
                     if (adoptedAnimal != null) {
@@ -155,7 +155,7 @@ public class OperationService {
 
         return orders.stream()
                 .map(order -> new OperationResponse(
-                        order.getOrderNumber(),
+                        order.getOperationNumber(),
                         order.getDate(),
                         mapToOrderLineItemsDto(order.getOrderLineItemsList()),
                         mapToFeedingTimeItemsDto(order.getFeedingTimeItemsList())
@@ -167,7 +167,7 @@ public class OperationService {
         OrderLineItem orderLineItem = new OrderLineItem();
         orderLineItem.setPrice(orderLineItemDto.getPrice());
         orderLineItem.setNickname(orderLineItemDto.getNickname());
-        orderLineItem.setSkuCode(orderLineItemDto.getSkuCode());
+        orderLineItem.setAnimalCode(orderLineItemDto.getAnimalCode());
         return orderLineItem;
     }
 
@@ -177,7 +177,7 @@ public class OperationService {
         feedingTimeItem.setName(feedingTimeItemDto.getName());
         feedingTimeItem.setNickname(feedingTimeItemDto.getNickname());
         feedingTimeItem.setFoodcode(feedingTimeItemDto.getFoodcode());
-        feedingTimeItem.setSkuCode(feedingTimeItemDto.getSkuCode());
+        feedingTimeItem.setAnimalCode(feedingTimeItemDto.getAnimalCode());
         return feedingTimeItem;
     }
 
@@ -185,7 +185,7 @@ public class OperationService {
         return orderLineItems.stream()
                 .map(orderLineItem -> new OrderLineItemDto(
                         orderLineItem.getId(),
-                        orderLineItem.getSkuCode(),
+                        orderLineItem.getAnimalCode(),
                         orderLineItem.getPrice(),
                         orderLineItem.getName(),
                         orderLineItem.getNickname()
@@ -196,7 +196,7 @@ public class OperationService {
         return feedingTimeItems.stream()
                 .map(feedingTimeItem -> new FeedingTimeItemDto(
                         feedingTimeItem.getId(),
-                        feedingTimeItem.getSkuCode(),
+                        feedingTimeItem.getAnimalCode(),
                         feedingTimeItem.getFoodcode(),
                         feedingTimeItem.getName(),
                         feedingTimeItem.getNickname()
@@ -205,7 +205,7 @@ public class OperationService {
     }
 
     public List<OperationResponse> getAllOperationByOperationNumber(List<String> operationNumber) {
-        List<Operation> animals = operationRepository.findByOrderNumberIn(operationNumber);
+        List<Operation> animals = operationRepository.findByOperationNumberIn(operationNumber);
 
         return animals.stream().map(this::mapToOperationResponse).toList();
     }
@@ -221,7 +221,7 @@ public class OperationService {
         List<FeedingTimeItemDto> feedingTimeItemDtoList = mapToFeedingTimeItemDtoList(operation.getFeedingTimeItemsList());
 
         return OperationResponse.builder()
-                .orderNumber(operation.getOrderNumber())
+                .operationNumber(operation.getOperationNumber())
                 .date(operation.getDate())
                 .orderLineItemsList(orderLineItemDtoList)
                 .feedingTimeItemsList(feedingTimeItemDtoList)
@@ -237,7 +237,7 @@ public class OperationService {
     private OrderLineItemDto mapToOrderLineItemDto(OrderLineItem orderLineItem) {
         return OrderLineItemDto.builder()
                 .id(orderLineItem.getId())
-                .skuCode(orderLineItem.getSkuCode())
+                .animalCode(orderLineItem.getAnimalCode())
                 .price(orderLineItem.getPrice())
                 .name(orderLineItem.getName())
                 .nickname(orderLineItem.getNickname())
@@ -253,7 +253,7 @@ public class OperationService {
     private FeedingTimeItemDto mapToFeedingTimeItemDto(FeedingTimeItem feedingTimeItem) {
         return FeedingTimeItemDto.builder()
                 .id(feedingTimeItem.getId())
-                .skuCode(feedingTimeItem.getSkuCode())
+                .animalCode(feedingTimeItem.getAnimalCode())
                 .foodcode(feedingTimeItem.getFoodcode())
                 .name(feedingTimeItem.getName())
                 .nickname(feedingTimeItem.getNickname())
@@ -261,7 +261,7 @@ public class OperationService {
     }
 
     public boolean deleteOperationItemsByOperationNumber(String operationNumber) {
-        List<Operation> itemsToDelete = operationRepository.findByOrderNumber(operationNumber);
+        List<Operation> itemsToDelete = operationRepository.findByOperationNumber(operationNumber);
         if (!itemsToDelete.isEmpty()) {
             operationRepository.deleteAll(itemsToDelete);
             return true;
@@ -270,12 +270,12 @@ public class OperationService {
         }
     }
 
-    public Operation updateOperationByOperationNumber(Operation updateOperation, String skuCode) {
-        List<Operation> operationOptional = operationRepository.findByOrderNumber(skuCode);
+    public Operation updateOperationByOperationNumber(Operation updateOperation, String animalCode) {
+        List<Operation> operationOptional = operationRepository.findByOperationNumber(animalCode);
         if (!operationOptional.isEmpty()){
             Operation operation = operationOptional.get(0);
             operation.setDate(updateOperation.getDate());
-            operation.setOrderNumber(updateOperation.getOrderNumber());
+            operation.setOperationNumber(updateOperation.getOperationNumber());
             operation.setOrderLineItemsList(updateOperation.getOrderLineItemsList());
             operation.setFeedingTimeItemsList(updateOperation.getFeedingTimeItemsList());
 

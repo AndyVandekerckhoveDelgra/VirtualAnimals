@@ -18,7 +18,7 @@ public class FeedingTimeItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String skuCode;
+    private String animalCode;
     private String foodcode;
     private String nickname;
     private String name;

@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdoptedAnimalRequest {
-    private String skuCode;
+    private String animalCode;
     private String nickname;
 }
 

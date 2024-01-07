@@ -13,7 +13,7 @@ package fact.it.operationservice.dto;
 @NoArgsConstructor
 public class AnimalResponse {
     private String id;
-    private String skuCode;
+    private String animalCode;
     private String name;
     private String description;
     private BigDecimal price;

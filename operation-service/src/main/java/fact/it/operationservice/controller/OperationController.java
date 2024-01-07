@@ -31,7 +31,7 @@ public class OperationController {
     @ResponseStatus(HttpStatus.OK)
     public String placeFeedingTime(@RequestBody OperationRequest operationRequest) {
         boolean result = operationService.placeFeedingTime(operationRequest);
-        return (result ? "Order placed successfully" : "Order placement failed");
+        return (result ? "Feeding done successfully" : "Feeding failed");
     }
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)

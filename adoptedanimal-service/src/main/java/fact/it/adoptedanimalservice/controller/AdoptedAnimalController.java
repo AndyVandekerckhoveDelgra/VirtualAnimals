@@ -18,12 +18,12 @@ public class AdoptedAnimalController {
 
     private final AdoptedAnimalService adoptedAnimalService;
 
-    // http://localhost:8082/api/adoptedanimal?skuCode=tube6in&skuCode=beam10ft
+    // http://localhost:8082/api/adoptedanimal?animalCode=tube6in&animalCode=ABC123
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<AdoptedAnimalResponse> getAdoptedAnimalBySkuCode
-            (@RequestParam List<String> skuCode) {
-        return adoptedAnimalService.getAllAnimalsBySkuCode(skuCode);
+    public List<AdoptedAnimalResponse> getAdoptedAnimalByAnimalCode
+            (@RequestParam List<String> animalCode) {
+        return adoptedAnimalService.getAllAnimalsByAnimalCode(animalCode);
     }
 
     @GetMapping("/all")
@@ -40,21 +40,16 @@ public class AdoptedAnimalController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED) // Use HttpStatus.CREATED for successful resource creation
-    public ResponseEntity<String> createProduct(@RequestBody AdoptedAnimalRequest productRequest) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<String> createAdoptedAnimal(@RequestBody AdoptedAnimalRequest productRequest) {
         adoptedAnimalService.createAdoptedAnimal(productRequest);
-
-        // Assuming the product creation was successful, return a success message
-        String responseMessage = "Product created successfully.";
-
-        // You can also include additional information in the response if needed
-
+        String responseMessage = "Adopted Animal created successfully.";
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMessage);
     }
 
-    @DeleteMapping("/delete/{skuCode}")
-    public ResponseEntity<String> deleteAdoptedAnimalItemsBySkuCode(@PathVariable String skuCode) {
-        boolean deleted = adoptedAnimalService.deleteAdoptedAnimalItemsBySkuCode(skuCode);
+    @DeleteMapping("/delete/{animalCode}")
+    public ResponseEntity<String> deleteAdoptedAnimalItemsByAnimalCode(@PathVariable String animalCode) {
+        boolean deleted = adoptedAnimalService.deleteAdoptedAnimalItemsByAnimalCode(animalCode);
         if (deleted) {
             return ResponseEntity.ok("Adoptedanimal items deleted successfully");
         } else {
@@ -64,9 +59,9 @@ public class AdoptedAnimalController {
 
 
 
-    @PutMapping("/update/{skuCode}")
-    public ResponseEntity<AdoptedAnimal> updateProduct(@RequestBody AdoptedAnimal updateAnimal, @PathVariable("skuCode") String skuCode){
-        AdoptedAnimal animal = adoptedAnimalService.updateAnimalBySkuCode(updateAnimal, skuCode);
+    @PutMapping("/update/{animalCode}")
+    public ResponseEntity<AdoptedAnimal> updateAdoptedAnimal(@RequestBody AdoptedAnimal updateAnimal, @PathVariable("animalCode") String animalCode){
+        AdoptedAnimal animal = adoptedAnimalService.updateAnimalByAnimalCode(updateAnimal, animalCode);
         if (animal==null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

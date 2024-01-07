@@ -9,9 +9,9 @@ package fact.it.operationservice.repository;
         import java.util.List;
 
 public interface OperationRepository extends JpaRepository<Operation, Long> {
-        List<Operation> findByOrderNumberIn(List<String> operationNumber);
+        List<Operation> findByOperationNumberIn(List<String> operationNumber);
 
-        List<Operation> findByOrderNumber(String operationNumber);
+        List<Operation> findByOperationNumber(String operationNumber);
 
         List<Operation> findByDateAfter(LocalDateTime date);
 }

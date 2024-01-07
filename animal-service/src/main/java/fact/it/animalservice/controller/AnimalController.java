@@ -28,9 +28,9 @@ public class AnimalController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<AnimalResponse> getAllAnimalsBySkuCode
-            (@RequestParam List<String> skuCode) {
-        return animalService.getAllAnimalsBySkuCode(skuCode);
+    public List<AnimalResponse> getAllAnimalsByAnimalCode
+            (@RequestParam List<String> animalCode) {
+        return animalService.getAllAnimalsByAnimalCode(animalCode);
     }
 
     @GetMapping("/all")
@@ -47,23 +47,24 @@ public class AnimalController {
 
 
 
-    @DeleteMapping("/delete/{skuCode}")
-    public ResponseEntity<String> deleteInventoryItemsBySkuCode(@PathVariable String skuCode) {
-        boolean deleted = animalService.deleteAnimalItemsBySkuCode(skuCode);
+    @DeleteMapping("/delete/{animalCode}")
+    public ResponseEntity<String> deleteInventoryItemsByAnimalCode(@PathVariable String animalCode) {
+        boolean deleted = animalService.deleteAnimalItemsByAnimalCode(animalCode);
         if (deleted) {
-            return ResponseEntity.ok("Inventory items deleted successfully");
+            return ResponseEntity.ok("Animal items deleted successfully");
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Inventory items not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Animal items not found");
         }
     }
 
-    @PutMapping("/update/{skuCode}")
-    public ResponseEntity<Animal> updateProduct(@RequestBody Animal updateAnimal, @PathVariable("skuCode") String skuCode){
-        Animal animal = animalService.updateAnimalBySkuCode(updateAnimal, skuCode);
+    @PutMapping("/update/{animalCode}")
+    public ResponseEntity<Animal> updateAnimal(@RequestBody Animal updateAnimal, @PathVariable("animalCode") String animalCode){
+        Animal animal = animalService.updateAnimalByAnimalCode(updateAnimal, animalCode);
         if (animal==null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(animal, HttpStatus.OK);
     }
+
 
 }

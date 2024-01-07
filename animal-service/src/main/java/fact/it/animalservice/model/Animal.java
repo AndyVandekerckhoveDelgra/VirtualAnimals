@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @Data
 public class Animal {
     private String id;
-    private String skuCode;
+    private String animalCode;
     private String name;
     private String description;
     private BigDecimal price;

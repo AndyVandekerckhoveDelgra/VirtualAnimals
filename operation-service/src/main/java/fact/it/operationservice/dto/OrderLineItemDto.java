@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class OrderLineItemDto {
     private Long id;
-    private String skuCode;
+    private String animalCode;
     private BigDecimal price;
     private String name;
     private String nickname;

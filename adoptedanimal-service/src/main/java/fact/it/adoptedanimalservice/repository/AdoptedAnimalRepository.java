@@ -11,8 +11,8 @@ import fact.it.adoptedanimalservice.model.AdoptedAnimal;
 @Repository
 @Transactional
 public interface AdoptedAnimalRepository extends JpaRepository<AdoptedAnimal, Long> {
-    List<AdoptedAnimal> findBySkuCodeIn(List<String> skuCode);
-        List<AdoptedAnimal> findBySkuCode(String skuCode);
+    List<AdoptedAnimal> findByAnimalCodeIn(List<String> skuCode);
+        List<AdoptedAnimal> findByAnimalCode(String skuCode);
     @Query("SELECT a FROM AdoptedAnimal a WHERE LOWER(a.nickname) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     List<AdoptedAnimal> findByKeywordInNickName(String keyword);
 }

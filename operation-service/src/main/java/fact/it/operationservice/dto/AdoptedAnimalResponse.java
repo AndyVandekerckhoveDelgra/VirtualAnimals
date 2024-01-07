@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class AdoptedAnimalResponse {
-    private String skuCode;
+    private String animalCode;
     private String nickname;
 }
