@@ -195,7 +195,7 @@ http://localhost:8081/api/operation
 
 #### POST: Place Order:
 
-(De microservice interageren met elkaar door elkaars localhost links te gebruiken in de hun code en gegevens op te halen waar nodig. U moeten voor deze functie ten minste dus de "animal" service en de "adopted animal" service open laten staan, samen met de "operation" service, zodat het functie werkt.)
+(De microservices interageren met elkaar door elkaars localhost links te gebruiken in de hun code en gegevens op te halen waar nodig. U moeten voor deze functie ten minste dus de "animal" service en de "adopted animal" service open laten staan, samen met de "operation" service, zodat de functie werkt.)
 
     {
       "orderLineItemsDtoList": [
@@ -216,7 +216,7 @@ http://localhost:8081/api/operation
 
 http://localhost:8081/api/operation/feeding
 
-(De microservice interageren met elkaar door elkaars localhost links te gebruiken in de hun code en gegevens op te halen waar nodig. U moeten voor deze functie ten minste dus de "food" service en de "adopted animal" service open laten staan, samen met de "operation service", zodat het functie werkt.)
+(De microservices interageren met elkaar door elkaars localhost links te gebruiken in de hun code en gegevens op te halen waar nodig. U moeten voor deze functie ten minste dus de "food" service en de "adopted animal" service open laten staan, samen met de "operation service", zodat de functie werkt.)
 
     {
       "feedingTimeItemsDtoList": [
