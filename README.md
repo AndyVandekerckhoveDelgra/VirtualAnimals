@@ -131,18 +131,19 @@ http://localhost:8083/api/food/delete/PPP999
 Operation service: http://localhost:8081/api/operation
 
 POST: Place Order:
-{
-  "orderLineItemsDtoList": [
+
     {
-      "animalCode": "ABC123",
-      "nickname": "Johnny"
-    },
-    {
-      "animalCode": "tube6in",
-      "nickname": "Mark"
+      "orderLineItemsDtoList": [
+        {
+          "animalCode": "ABC123",
+          "nickname": "Johnny"
+        },
+        {
+          "animalCode": "tube6in",
+          "nickname": "Mark"
+        }
+      ]
     }
-  ]
-}
 
 POST: Feed an adopted animal food:
 http://localhost:8081/api/operation/feeding
