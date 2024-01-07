@@ -7,14 +7,15 @@ Adopted Animal Service: Localhost:8082/api/adoptedanimal
 POST: Create Adopted Animal items by Nickname
 http://localhost:8082/api/adoptedanimal
 
-{
+    {
         "animalCode": "ABC123",
         "nickname": "Johnny"
-    },
+    }
+    
     {
         "animalCode": "tube6in",
         "nickname": "Mark"
-    },
+    }
     {
         "animalCode": "DBC321",
         "nickname": "Lisa"
