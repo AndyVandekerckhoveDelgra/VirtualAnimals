@@ -151,18 +151,26 @@ http://localhost:8083/api/food
         "name": "burger"
     }
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/3POST1.png)
+
 
 #### GET: Get all Food items:
 
 http://localhost:8083/api/food/all
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/3GET1.png)
+
 #### GET: Get Food item by foodcode:
 
 http://localhost:8083/api/food?foodcode=POP932
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/3GET2.png)
+
 #### GET: Get Food item by name:
 
 http://localhost:8083/api/food/search/pi
+
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/3GET3.png)
 
 #### PUT: Update Food item:
 
@@ -173,9 +181,13 @@ http://localhost:8083/api/food/update/PPP999
         "name": "hamburger"
     }
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/3PUT1.png)
+
 #### DELETE: Delete Food item:
 
 http://localhost:8083/api/food/delete/PPP999
+
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/3DELETE1.png)
 
 ### Operation service: 
 
@@ -196,6 +208,8 @@ http://localhost:8081/api/operation
       ]
     }
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/4POST1.png)
+
 #### POST: Feed an adopted animal food:
 
 http://localhost:8081/api/operation/feeding
@@ -213,20 +227,29 @@ http://localhost:8081/api/operation/feeding
       ]
     }
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/4POST2.png)
 
 #### GET: Get all operation items:
 
 http://localhost:8081/api/operation/all
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/4GET11.png)
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/4GET12.png)
+
+
 #### GET: Get all operation items by operation number:
 
 http://localhost:8081/api/operation?operationNumber=dd4bddc4-2f2a-4c79-816f-bbb9c7a257d1
+
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/4GET2.png)
 
 #### GET: Get all operation items by date:
 
 (Note: it shows all the operations whose date come after the given date.)
 
 http://localhost:8081/api/operation/after/2024-01-01T00:03:52.353969
+
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/4GET3.png)
 
 #### PUT: Update Operation:
 
@@ -256,6 +279,10 @@ http://localhost:8081/api/operation/update/dd4bddc4-2f2a-4c79-816f-bbb9c7a257d1
             "feedingTimeItemsList": []
     }
 
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/4PUT1.png)
+
 DELETE: Delete Operation:
 
 http://localhost:8081/api/operation/delete/cb432450-09f3-404c-af49-adf7b52fa0fa
+
+![alt text](https://github.com/AndyVandekerckhoveDelgra/VirtualAnimals/blob/main/images/4DELETE1.png)
