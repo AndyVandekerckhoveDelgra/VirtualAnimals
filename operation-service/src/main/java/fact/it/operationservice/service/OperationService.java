@@ -150,7 +150,7 @@ public class OperationService {
     }
 
 
-    public List<OperationResponse> getAllOrders() {
+    public List<OperationResponse> getAllOperations() {
         List<Operation> orders = operationRepository.findAll();
 
         return orders.stream()

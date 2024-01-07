@@ -35,8 +35,8 @@ public class OperationController {
     }
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    public List<OperationResponse> getAllProducts() {
-        return operationService.getAllOrders();
+    public List<OperationResponse> getAllOperations() {
+        return operationService.getAllOperations();
     }
 
     @GetMapping("/after/{date}")
